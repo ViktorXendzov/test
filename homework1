@@ -1,4 +1,4 @@
-sing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,15 +10,17 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            int number = 0;
+            string textInput;
+            int number;
+            Console.WriteLine("Ввидите текст:");
+            textInput = Console.ReadLine();
+            Console.WriteLine("Сколько раз вывести текст:");
+            number = Convert.ToInt32(Console.ReadLine());
 
-            while (number < 10)
+            for (int i = 0; i < number; i++)
             {
-                Console.WriteLine("Хорошего дня");
-                number++;
+                Console.WriteLine(textInput);
             }
-
-
         }       
     }
 }
