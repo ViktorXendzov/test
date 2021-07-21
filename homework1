@@ -1,0 +1,135 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int copperToSilver = 100, silverToGold = 10, copperToGold = 1000;
+            float copper, silver, gold;
+            string userInput;
+            float currencyCount;
+            bool isOpen = true;
+
+            Console.WriteLine("Введите количество ваших монет:");
+            Console.Write("Медных монет: ");
+            copper = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Серебренных монет: ");
+            silver = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Золотых монет: ");
+            gold = Convert.ToSingle(Console.ReadLine());
+
+            while (isOpen)
+            {
+                Console.WriteLine("\nДобро пожаловать в банк. Мы даем вам возможность обменять любую валюту, что вы хотите сделать?");
+                Console.WriteLine("1 - обмен медных монет на серебренные");
+                Console.WriteLine("2 - обмен серебренных монет на золотые");
+                Console.WriteLine("3 - обмен медных монет на золотые");
+                Console.WriteLine("4 - обмен золотых монет на серебренные");
+                Console.WriteLine("5 - обмен золотых монет на медные");
+                Console.WriteLine("6 - обмен сереберенных монет на медные");
+                Console.WriteLine("7 - выйти из обменника\n");
+                userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case "1":
+                        Console.WriteLine("Обмен медных монет на серебренные");
+                        Console.WriteLine("Сколько вы хотите обменять:");
+                        currencyCount = Convert.ToSingle(Console.ReadLine());
+                        if (copper >= currencyCount)
+                        {
+                            copper -= currencyCount;
+                            silver += currencyCount / copperToSilver;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Недостаточно монет");
+                        }
+                        break;
+                    case "2":
+                        Console.WriteLine("Обмен серебренных монет на золотые");
+                        Console.WriteLine("Сколько вы хотите обменять:");
+                        currencyCount = Convert.ToSingle(Console.ReadLine());
+                        if (silver >= currencyCount)
+                        {
+                            silver -= currencyCount;
+                            gold += currencyCount / silverToGold;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Недостаточно монет");
+                        }
+                        break;
+                    case "3":
+                        Console.WriteLine("Обмен медных монет на золотые");
+                        Console.WriteLine("Сколько вы хотите обменять:");
+                        currencyCount = Convert.ToSingle(Console.ReadLine());
+                        if (copper >= currencyCount)
+                        {
+                            copper -= currencyCount;
+                            gold += currencyCount / copperToGold;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Недостаточно монет");
+                        }
+                        break;
+                    case "4":
+                        Console.WriteLine("Обмен золотых монет на серебренные");
+                        Console.WriteLine("Сколько вы хотите обменять:");
+                        currencyCount = Convert.ToSingle(Console.ReadLine());
+                        if (gold >= currencyCount)
+                        {
+                            gold -= currencyCount;
+                            silver += currencyCount * silverToGold;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Недостаточно монет");
+                        }
+                        break;
+                    case "5":
+                        Console.WriteLine("Обмен золотых монет на медные");
+                        Console.WriteLine("Сколько вы хотите обменять:");
+                        currencyCount = Convert.ToSingle(Console.ReadLine());
+                        if (gold >= currencyCount)
+                        {
+                            gold -= currencyCount;
+                            copper += currencyCount * copperToGold;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Недостаточно монет");
+                        }
+                        break;
+                    case "6":
+                        Console.WriteLine("Обмен сереберенных монет на медные");
+                        Console.WriteLine("Сколько вы хотите обменять:");
+                        currencyCount = Convert.ToSingle(Console.ReadLine());
+                        if (silver >= currencyCount)
+                        {
+                            silver -= currencyCount;
+                            copper += currencyCount * copperToSilver;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Недостаточно монет");
+                        }
+                        break;
+                    case "7":
+                        isOpen = false;
+                        Console.WriteLine("\nСпасибо, что воспользовались нашим банком. Приходите снова.");
+                        break;
+                }
+                Console.WriteLine("Теперь у вас: " + copper + " медных монет. " + silver + " серебренных монет. " + gold + " золотых монет. ");
+            }
+
+            Console.ReadKey();
+        }       
+    }
+}
