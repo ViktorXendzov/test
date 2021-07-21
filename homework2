@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+     
+      
+            int result;
+            int numberOne, numberTwo;
+            string userInput;
+            float resultDivision;
+            bool isOpen = true;
+
+            Console.WriteLine("Добро пожаловать. Вас приветствует программа вычисления. Пожалуйста, введите числа:");
+            Console.Write("Первое число - ");
+            numberOne = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Второе число - ");
+            numberTwo = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("1 - посчитать сумму.\n2 - посчитать разность.\n3 - посчитать произведение чисел.\n4 - посчитать частное.\nНабирите Exit, чтобы выйти.");
+
+            while (isOpen)
+            {
+                Console.WriteLine("\nВыберите необходимое действие:");
+                userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case "1":
+                        Console.WriteLine("\nСумма чисел равна:");
+                        result = numberOne + numberTwo;
+                        Console.WriteLine(result);
+                        break;
+
+                    case "2":
+                        Console.WriteLine("\nРазность чисел равна:");
+                        result = numberOne - numberTwo;
+                        Console.WriteLine(result);
+                        break;
+
+                    case "3":
+                        Console.WriteLine("\nПроизведение чисел равно:");
+                        result = numberOne * numberTwo;
+                        Console.WriteLine(result);
+                        break;
+
+                    case "4":
+                        Console.WriteLine("\nЧастное чисел равно:");
+                        resultDivision = numberOne / Convert.ToSingle(numberTwo);
+                        Console.WriteLine(resultDivision);
+                        break;
+
+                    case "Exit":
+                        isOpen = false;
+                        Console.WriteLine("\nДо свидания.");
+                        break;
+                }
+            }
+            Console.ReadKey();
+        }   
+
+    }
+}
