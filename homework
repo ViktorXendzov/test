@@ -10,16 +10,15 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            int userInput;
+            int number = 0;
 
-            Console.WriteLine("Введите сколько сообщений нужно написать:");
-            userInput = Convert.ToInt32(Console.ReadLine());
-
-            while (userInput-- > 0)
+            while (number < 10)
             {
-                Console.WriteLine("Вывод сообщения ");
+                Console.WriteLine("Хорошего дня");
+                number++;
             }
 
-        }
+
+        }       
     }
 }
